@@ -1,18 +1,97 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+```markdown
+# ⚡ Energy Billing System
 
-## Folder Structure
+A standalone desktop application built in Java to manage electricity consumption and generate accurate billing records for customers. This system simplifies billing processes, tracks usage, and securely stores data in an SQL database.
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🛠️ Features
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Customer registration and management
+- Electricity consumption tracking
+- Automated bill calculation based on unit rates
+- Data storage using SQL (via JDBC)
+- Intuitive Java Swing-based user interface
+- Secure data access and basic error handling
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+## 🧩 Technologies Used
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- **Java (Core + OOP)**  
+- **Swing** – GUI development  
+- **JDBC** – Database connectivity  
+- **MySQL / SQLite** – Backend database (choose one you used)  
+
+---
+
+## 📁 Project Structure
+
+```
+├── MainApp.java             # Entry point of the application
+├── MainFrame.java           # Main GUI interface
+├── Customer.java            # Customer data model
+├── Consumption.java         # Electricity usage tracker
+├── Bill.java                # Billing logic and amount calculator
+├── BillingSystem.java       # Core application logic/controller
+├── DatabaseManager.java     # SQL connection and query manager
+```
+
+---
+
+## 🚀 How to Run
+
+1. Clone or download the repository.
+2. Set up a local SQL database and configure credentials in `DatabaseManager.java`.
+3. Compile all `.java` files:
+   ```bash
+   javac *.java
+   ```
+4. Run the application:
+   ```bash
+   java MainApp
+   ```
+
+---
+
+## 🔐 Database Setup
+
+Make sure to create the necessary tables before running the app. Example structure:
+
+```sql
+CREATE TABLE customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    address VARCHAR(255)
+);
+
+CREATE TABLE consumption (
+    customer_id INT,
+    units_consumed INT,
+    billing_date DATE
+);
+
+CREATE TABLE bills (
+    bill_id INT PRIMARY KEY,
+    customer_id INT,
+    amount DECIMAL(10, 2),
+    billing_date DATE
+);
+```
+
+> You may need to adjust field types and table structures based on your actual schema.
+
+---
+
+## 🙌 Authors
+
+- Bhavin Joshi
+
+---
+
+## 📌 License
+
+This project is for educational purposes. You may adapt or modify as needed.
+
+```
