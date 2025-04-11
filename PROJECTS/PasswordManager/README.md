@@ -1,4 +1,3 @@
----
 
 ```markdown
 # 🔐 Passure – Java Password Manager
