@@ -1,23 +1,28 @@
 ---
-```markdown
-# 🔐 Passure – Java Password Manager  
-![Java](https://img.shields.io/badge/Java-8%2B-blue.svg)  
-![License](https://img.shields.io/badge/license-MIT-green.svg)  
-![Build](https://img.shields.io/badge/build-passing-brightgreen)  
-![Platform](https://img.shields.io/badge/platform-desktop-lightgrey)
 
-**Passure** is a secure, standalone desktop application written in Java that allows users to generate strong passwords and manage their credentials safely. The app stores passwords locally using an encrypted SQL database and provides a user-friendly interface built with Swing.
+```markdown
+# 🔐 Passure – Java Password Manager
+
+**Passure** is a secure and user-friendly password manager built entirely in Java. Designed as a standalone desktop application, it allows users to generate strong passwords and safely store login credentials using local SQL-based storage and encryption. The project follows a clean MVC architecture with modular components for scalability and maintenance.
 
 ---
 
-## ✨ Features
+## 🧩 Features
 
-- ✅ Strong password generator with customizable settings
-- 🔐 Encrypted password storage using SQL + JDBC
-- 🧠 Local-first privacy — no internet or cloud required
-- 🧪 Unit-tested components using JUnit
-- 🖥️ Java Swing-based graphical interface
-- 📦 Clean modular structure (MVC pattern)
+- 🔑 **Strong Password Generator**  
+  Automatically generate secure, complex passwords.
+
+- 🔐 **Secure Password Storage**  
+  Encrypted local storage using SQL database (JDBC integrated).
+
+- 🧭 **Simple Desktop UI**  
+  Built with Java Swing and custom-styled using external resources.
+
+- 🧪 **JUnit-Based Testing**  
+  Includes unit tests for controllers and logic components.
+
+- 🧰 **Modular Codebase**  
+  Clean separation using `controller`, `model`, `util`, and `view` packages.
 
 ---
 
@@ -27,46 +32,62 @@
 PasswordManager/
 ├── bin/                          # Compiled class files
 ├── lib/                          # External libraries (if any)
-├── resources/styles/             # CSS or styles for GUI
+├── resources/styles/            # CSS or styling files for GUI
 ├── src/
-│   └── main/java/com/passwordmanager/
-│       ├── controller/           # Logic handling
-│       ├── model/                # Data structure (User, Credential)
-│       ├── util/                 # Helpers (encryption, validation)
-│       ├── view/                 # GUI layout
-│       ├── App.java              # Entry support
-│       └── PasswordManagerApp.java  # Main launcher
-├── test/java/com/
-│   ├── AuthControllerTest.java
-│   └── PasswordControllerTest.java
-└── README.md
+│   └── main/
+│       └── java/com/passwordmanager/
+│           ├── controller/      # UI + business logic controllers
+│           │   ├── AuthController.java
+│           │   └── PasswordController.java
+│           ├── model/           # Data models (User, Credential)
+│           ├── util/            # Utility classes (Encryption, Validator)
+│           ├── view/            # GUI layout and components
+│           ├── PasswordManagerApp.java  # Main launcher class
+│           └── App.java         # Supporting class (if applicable)
+├── test/
+│   └── java/com/
+│       ├── AuthControllerTest.java
+│       └── PasswordControllerTest.java
+├── README.md
 ```
 
 ---
 
 ## ⚙️ Technologies Used
 
-- Java 8+
-- Swing (UI)
-- JDBC (SQL Connectivity)
-- MySQL or SQLite (Local DB)
-- JUnit (Unit Testing)
-- Custom Encryption Utility (e.g., AES or Base64)
+- **Java 8+**
+- **Swing (GUI)**
+- **JDBC (SQL Integration)**
+- **MySQL / SQLite** (as DB)
+- **JUnit** (for unit testing)
+- **Basic Encryption** (e.g., AES or Base64)
 
 ---
 
-## 🚀 Getting Started
+## 🚀 How to Run
 
-### 1. Clone the Repository
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/your-username/Passure.git
+   cd Passure
+   ```
 
-```bash
-git clone https://github.com/your-username/Passure.git
-cd Passure
-```
+2. **Set up the database**  
+   Create a database and update connection credentials in `DatabaseManager.java`.
 
-### 2. Set Up the Database
+3. **Compile the source files**  
+   ```bash
+   javac -d bin src/main/java/com/passwordmanager/**/*.java
+   ```
 
-Create tables for storing users and credentials:
+4. **Run the application**  
+   ```bash
+   java -cp bin com.passwordmanager.PasswordManagerApp
+   ```
+
+---
+
+## 🔐 Example SQL Setup
 
 ```sql
 CREATE TABLE users (
@@ -84,54 +105,27 @@ CREATE TABLE credentials (
 );
 ```
 
-Update your DB credentials in `DatabaseManager.java`.
-
 ---
 
-### 3. Build & Run the App
+## 🧪 Running Tests
 
-Compile:
 ```bash
-javac -d bin src/main/java/com/passwordmanager/**/*.java
-```
-
-Run:
-```bash
-java -cp bin com.passwordmanager.PasswordManagerApp
+javac -cp .:lib/junit-4.12.jar test/java/com/*.java
+java -cp .:lib/junit-4.12.jar org.junit.runner.JUnitCore com.AuthControllerTest
 ```
 
 ---
 
-### 🧪 Run Tests
+## 🙌 Author
 
-```bash
-javac -cp .:lib/junit-4.13.2.jar test/java/com/*.java
-java -cp .:lib/junit-4.13.2.jar org.junit.runner.JUnitCore com.AuthControllerTest
-```
-
-> Update the JUnit jar version if needed.
+- **Your Name**  
+  Add more contributors if any.
 
 ---
 
-## 🧠 Future Enhancements
+## 📌 License
 
-- Cloud sync with encryption
-- Biometric login
-- Dark mode UI
-- Password breach checker (via HaveIBeenPwned API)
-
----
-
-## 🙋‍♂️ Author
-
-Bhavin Joshi
-[LinkedIn](https://linkedin.com/in/yourusername) | [GitHub](https://github.com/your-username)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+This project is open for educational and personal use. Feel free to modify.
 
 ---
 
